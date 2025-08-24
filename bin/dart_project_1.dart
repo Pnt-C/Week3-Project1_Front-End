@@ -56,7 +56,7 @@ Future<void> menu(int userId, String username) async {
       case '1':
         print("------------- All expenses -------------");
           // Add code here 
-          print('hello'); 
+          print('he'); 
         break;
       case '2':
         print("------------- Today's expense -------------");
