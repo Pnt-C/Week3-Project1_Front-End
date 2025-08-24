@@ -67,7 +67,7 @@ Future<void> menu(int userId, String username) async {
         break;
       case '4':
         print("------------- Add new expense -------------");
-          // Add code here
+          
         break;
       case '5':
         print("------------- Delete an expense -------------");
