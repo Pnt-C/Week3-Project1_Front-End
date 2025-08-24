@@ -55,23 +55,23 @@ Future<void> menu(int userId, String username) async {
     switch (choice) {
       case '1':
         print("------------- All expenses -------------");
-          // Add code here
+        // Add code here
         break;
       case '2':
         print("------------- Today's expense -------------");
-          // Add code here
+        // Add code here
         break;
       case '3':
         print("------------- Search expense -------------");
-          // Add code here
+        print('Hello world');
         break;
       case '4':
         print("------------- Add new expense -------------");
-          // Add code here
+        // Add code here
         break;
       case '5':
         print("------------- Delete an expense -------------");
-          // Add code here
+        // Add code here
         break;
       case '6':
         print("------ Bye ------");
