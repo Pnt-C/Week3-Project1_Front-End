@@ -63,7 +63,7 @@ Future<void> menu(int userId, String username) async {
         break;
       case '3':
         print("------------- Search expense -------------");
-        print('Hello world');
+        // Add code here
         break;
       case '4':
         print("------------- Add new expense -------------");
