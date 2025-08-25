@@ -55,24 +55,56 @@ Future<void> menu(int userId, String username) async {
     switch (choice) {
       case '1':
         print("------------- All expenses -------------");
-          // Add code here 
-          print('he'); 
+        // Add code here
+
+        Future<void> allExpenses(int userId) async {
+          final url = Uri.parse('http://localhost:3000/expenses/$userId');
+          try {
+            final response = await http.get(url);
+
+            if (response.statusCode == 200) {
+              List<dynamic> expenses = json.decode(response.body);
+              if (expenses.isEmpty) {
+                print("No expenses found.");
+              } else {
+                double total = 0;
+                for (var exp in expenses) {
+                  DateTime date = DateTime.parse(exp['date']);
+                  String formattedDate = date
+                      .toUtc()
+                      .toIso8601String()
+                      .replaceAll('T', ' ')
+                      .substring(0, 23);
+                  print("${exp['id']}. ${exp['item']} : ${exp['paid']}฿ : $formattedDate",);
+                  total += double.parse(exp['paid'].toString());
+                  }
+                print("Total expenses = ${total.toStringAsFixed(0)}฿");
+              }
+            } else {
+              print("Failed to fetch expenses: ${response.body}");
+            }
+          } catch (error) {
+            print("Error connecting to server: $error");
+          }
+        }
+        await allExpenses(userId);
+
         break;
       case '2':
         print("------------- Today's expense -------------");
-          // Add code here
+        // Add code here
         break;
       case '3':
         print("------------- Search expense -------------");
-          // Add code here
+        // Add code here
         break;
       case '4':
         print("------------- Add new expense -------------");
-          // Add code here
+        // Add code here
         break;
       case '5':
         print("------------- Delete an expense -------------");
-          // Add code here
+        // Add code here
         break;
       case '6':
         print("------ Bye ------");
